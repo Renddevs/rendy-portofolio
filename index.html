@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendy Praseptya Nugraha - IT Consultant Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bs-body-font-family: 'Inter', sans-serif;
+            --primary-navy: #111827;
+            /* From primary */
+            --accent-blue: #2563EB;
+            --bg-offwhite: #F8F9FA;
+            --surface: #FFFFFF;
+            --surface-container: #edeeef;
+            --surface-container-low: #f3f4f5;
+            --border-light: #e1e3e4;
+            --text-muted: #555f70;
+            --bs-body-bg: var(--bg-offwhite);
+            --bs-body-color: var(--primary-navy);
+
+            --section-gap: 120px;
+        }
+
+        body {
+            font-family: var(--bs-body-font-family);
+            background-color: var(--bs-body-bg);
+            color: var(--bs-body-color);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+            color: var(--primary-navy);
+            letter-spacing: -0.01em;
+        }
+
+        .display-hero {
+            font-size: 64px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .headline-section {
+            font-size: 44px;
+            line-height: 1.2;
+        }
+
+        .title-lg {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .label-sm {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .display-hero {
+                font-size: 40px;
+            }
+
+            .headline-section {
+                font-size: 32px;
+            }
+        }
+
+        /* Layout */
+        .section-gap {
+            padding: var(--section-gap) 0;
+        }
+
+        /* Navbar */
+        .navbar-glass {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light);
+            height: 72px;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: -0.05em;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--text-muted) !important;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-navy) !important;
+        }
+
+        /* Buttons */
+        .btn {
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 0.75rem 2rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary-custom {
+            background-color: var(--primary-navy);
+            border: 1px solid var(--primary-navy);
+            color: #fff;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .btn-accent {
+            background-color: #003ea8;
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-accent:hover {
+            background-color: #002d7a;
+            color: #fff;
+        }
+
+        .btn-ghost {
+            background-color: transparent;
+            border: 1px solid #76777d;
+            color: var(--primary-navy);
+        }
+
+        .btn-ghost:hover {
+            background-color: var(--surface-container-low);
+        }
+
+        /* Hero Image */
+        .hero-img-container {
+            background-color: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 8px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+            aspect-ratio: 4/3;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* Cards */
+        .feature-card {
+            background-color: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: box-shadow 0.3s;
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-card {
+            background-color: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-img-wrapper {
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
+
+        /* Icons */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Badges */
+        .badge-skill {
+            background-color: var(--surface-container);
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            text-transform: none;
+            letter-spacing: normal;
+        }
+
+        /* Experience Timeline */
+        .timeline-container {
+            border-left: 1px solid rgba(225, 227, 228, 0.4);
+            margin-left: 1rem;
+            padding-left: 2.5rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -3.05rem;
+            top: 0.375rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            border: 4px solid var(--surface);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .dot-primary {
+            background-color: var(--primary-navy);
+        }
+
+        .dot-secondary {
+            background-color: #76777d;
+        }
+
+        .dot-tertiary {
+            background-color: var(--border-light);
+        }
+
+        /* Fade in Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Border Tops */
+        .border-t-subtle {
+            border-top: 1px solid rgba(225, 227, 228, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TopNavBar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-glass">
+        <div class="container">
+            <a class="navbar-brand text-dark" href="#">Rendy Praseptya Nugraha</a>
+            <button class="navbar-toggler border-0 shadow-none text-dark" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center mb-2 mb-lg-0 gap-lg-4">
+                    <li class="nav-item"><a class="nav-link active" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="#contact" class="btn btn-accent rounded-1 label-sm">Let's Talk</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main style="padding-top: 72px;">
+        <!-- Hero Section -->
+        <section id="about" class="section-gap d-flex align-items-center" style="min-height: 819px;">
+            <div class="container-fluid px-4 px-lg-5">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 fade-in-up">
+                        <p class="label-sm text-muted mb-4">IT CONSULTANT • BUSINESS ANALYST • SOFTWARE ENGINEER</p>
+                        <h1 class="display-hero mb-4">Turning Business Problems Into Technology Solutions.</h1>
+                        <p class="fs-5 text-muted mb-5" style="max-width: 750px;">
+                            I help businesses analyze their processes, translate requirements into practical solutions,
+                            and build scalable web applications that solve real business problems.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3 mb-5">
+                            <a href="#projects" class="btn btn-primary-custom label-sm">View My Projects</a>
+                            <a href="#contact" class="btn btn-ghost label-sm">Let's Work Together</a>
+                        </div>
+                        <div class="d-flex flex-wrap align-items-center gap-4 text-muted label-sm">
+                            <span class="d-flex align-items-center gap-2"><span
+                                    class="material-symbols-outlined">verified</span> 5+ Years Experience</span>
+                            <span class="d-none d-sm-inline">•</span>
+                            <span class="d-none d-sm-flex align-items-center gap-2"><span
+                                    class="material-symbols-outlined">analytics</span> Business Analysis</span>
+                            <span class="d-none d-sm-inline">•</span>
+                            <span class="d-none d-sm-flex align-items-center gap-2"><span
+                                    class="material-symbols-outlined">code</span> Software Engineering</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 fade-in-up" style="transition-delay: 200ms;">
+                        <div class="hero-img-container">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuATxxtd0-lYQICMzntkj1dQU4k6MCrkKqv_WqRtJvEgstlsvWzTURl_F63Xu9AteKCdCaiYcrZRp34iieLTBQd_99piqOix1oDglBDjTa0H7PA2lxeRdIMiH2Rmc1Q0f8gVpsU1rI0X_ja1_qsIcjoSGK6l0snwPREyBV9iwjeS0DuKDPVUckLxC4TlPm163mm-4MVtI3tDlo8uguUgneoMFFjaNHF8wb66aaGTJzmV4mhl-XHMChiZ"
+                                alt="Abstract architectural rendering" class="hero-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Highlight (4 Cards) -->
+        <section id="services" class="section-gap border-t-subtle"
+            style="background-color: var(--surface); border-bottom: 1px solid rgba(225, 227, 228, 0.3);">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3 fade-in-up">
+                        <div class="feature-card">
+                            <span class="material-symbols-outlined fs-1 text-dark mb-3">query_stats</span>
+                            <h3 class="title-lg mb-2">Business Analysis</h3>
+                            <p class="text-muted mb-0">Understand business needs</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 fade-in-up" style="transition-delay: 100ms;">
+                        <div class="feature-card">
+                            <span class="material-symbols-outlined fs-1 text-dark mb-3">architecture</span>
+                            <h3 class="title-lg mb-2">Solution Design</h3>
+                            <p class="text-muted mb-0">Design practical technology</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 fade-in-up" style="transition-delay: 200ms;">
+                        <div class="feature-card">
+                            <span class="material-symbols-outlined fs-1 text-dark mb-3">developer_mode</span>
+                            <h3 class="title-lg mb-2">Software Engineering</h3>
+                            <p class="text-muted mb-0">Build reliable applications</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 fade-in-up" style="transition-delay: 300ms;">
+                        <div class="feature-card">
+                            <span class="material-symbols-outlined fs-1 text-dark mb-3">integration_instructions</span>
+                            <h3 class="title-lg mb-2">System Integration</h3>
+                            <p class="text-muted mb-0">Connect systems and APIs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Technical Architecture -->
+        <section id="skills" class="section-gap">
+            <div class="container-fluid px-4 px-lg-5">
+                <div class="mb-5 fade-in-up">
+                    <p class="label-sm text-muted mb-2">CORE COMPETENCIES</p>
+                    <h2 class="headline-section mb-4">Skills & Technical Architecture</h2>
+                    <p class="fs-5 text-muted" style="max-width: 1800px;">
+                        A robust technical stack centered around high-performance backend engineering, pragmatic
+                        programming frameworks, modern data persistence, and clean software architecture.
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Column 1 -->
+                    <div class="col-md-6 col-lg-3 fade-in-up">
+                        <div class="feature-card d-flex flex-column">
+                            <div class="mb-4">
+                                <div class="d-inline-block p-2 rounded mb-3"
+                                    style="background-color: var(--surface-container);">
+                                    <span class="material-symbols-outlined text-dark fs-4 d-block">analytics</span>
+                                </div>
+                                <h3 class="title-lg mb-2">Business Analyst</h3>
+                                <p class="text-muted mb-4">Gathering requirements, analyzing business processes, and
+                                    defining technology solutions.</p>
+                            </div>
+                            <div class="mt-auto d-flex flex-wrap gap-2">
+                                <span class="badge badge-skill">Requirement Gathering</span>
+                                <span class="badge badge-skill">Process Modeling</span>
+                                <span class="badge badge-skill">UML & BPMN</span>
+                                <span class="badge badge-skill">Agile / Scrum</span>
+                                <span class="badge badge-skill">Data Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 2 -->
+                    <div class="col-md-6 col-lg-3 fade-in-up" style="transition-delay: 200ms;">
+                        <div class="feature-card d-flex flex-column">
+                            <div class="mb-4">
+                                <div class="d-inline-block p-2 rounded mb-3"
+                                    style="background-color: var(--surface-container);">
+                                    <span class="material-symbols-outlined text-dark fs-4 d-block">database</span>
+                                </div>
+                                <h3 class="title-lg mb-2">Database & Data Architecture</h3>
+                                <p class="text-muted mb-4">Relational modeling, indexing strategies, caching layers, and
+                                    high-load query optimization.</p>
+                            </div>
+                            <div class="mt-auto d-flex flex-wrap gap-2">
+                                <span class="badge badge-skill">Microsoft SQL Server</span>
+                                <span class="badge badge-skill">SAP HANA</span>
+                                <span class="badge badge-skill">MySQL / MariaDB</span>
+                                <span class="badge badge-skill">PostgreSQL</span>
+                                <span class="badge badge-skill">Redis</span>
+                                <span class="badge badge-skill">Optimization & Indexing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 3 -->
+                    <div class="col-md-6 col-lg-3 fade-in-up" style="transition-delay: 100ms;">
+                        <div class="feature-card d-flex flex-column">
+                            <div class="mb-4">
+                                <div class="d-inline-block p-2 rounded mb-3"
+                                    style="background-color: var(--surface-container);">
+                                    <span class="material-symbols-outlined text-dark fs-4 d-block">terminal</span>
+                                </div>
+                                <h3 class="title-lg mb-2">Backend & API Development</h3>
+                                <p class="text-muted mb-4">Scalable web services, enterprise RESTful APIs, and secure
+                                    distributed logic.</p>
+                            </div>
+                            <div class="mt-auto d-flex flex-wrap gap-2">
+                                <span class="badge badge-skill">C#</span>
+                                <span class="badge badge-skill">PHP</span>
+                                <span class="badge badge-skill">Laravel</span>
+                                <span class="badge badge-skill">CodeIgniter</span>
+                                <span class="badge badge-skill">ASP.NET Core Web API</span>
+                                <span class="badge badge-skill">RESTful APIs</span>
+                                <span class="badge badge-skill">Microservices Architecture</span>
+                                <span class="badge badge-skill">Entity Framework / ORM</span>
+                                <span class="badge badge-skill">Authentication & JWT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 4 -->
+                    <div class="col-md-6 col-lg-3 fade-in-up" style="transition-delay: 300ms;">
+                        <div class="feature-card d-flex flex-column">
+                            <div class="mb-4">
+                                <div class="d-inline-block p-2 rounded mb-3"
+                                    style="background-color: var(--surface-container);">
+                                    <span class="material-symbols-outlined text-dark fs-4 d-block">devices</span>
+                                </div>
+                                <h3 class="title-lg mb-2">Frontend & Development Tools</h3>
+                                <p class="text-muted mb-4">Responsive user interfaces paired with automated
+                                    containerized workflows.</p>
+                            </div>
+                            <div class="mt-auto d-flex flex-wrap gap-2">
+                                <span class="badge badge-skill">HTML</span>
+                                <span class="badge badge-skill">CSS</span>
+                                <span class="badge badge-skill">JavaScript</span>
+                                <span class="badge badge-skill">Bootstrap</span>
+                                <span class="badge badge-skill">Blazor (C#)</span>
+                                <span class="badge badge-skill">Docker</span>
+                                <span class="badge badge-skill">Git / GitHub</span>
+                                <span class="badge badge-skill">Postman</span>
+                                <span class="badge badge-skill">CI/CD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Projects -->
+        <section id="projects" class="section-gap border-t-subtle" style="background-color: var(--surface);">
+            <div class="container">
+                <div class="mb-5 fade-in-up">
+                    <h2 class="headline-section mb-4">Selected Projects</h2>
+                    <p class="fs-5 text-muted" style="max-width: 600px;">
+                        A selection of systems and solutions I've worked on across business analysis, software
+                        engineering, and system integration.
+                    </p>
+                </div>
+
+                <div id="projectsCarousel" class="carousel slide fade-in-up pb-5" data-bs-ride="carousel">
+                    <!-- Indicators/dots -->
+                    <div class="carousel-indicators" style="bottom: 0;">
+                        <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="0" class="active bg-dark" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="1" class="bg-dark" aria-label="Slide 2"></button>
+                    </div>
+
+                    <!-- The slideshow/carousel -->
+                    <div class="carousel-inner px-md-5">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                            <div class="project-card mx-auto d-flex flex-column h-100" style="max-width: 800px;">
+                                <div class="project-img-wrapper">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5CIvwsKbUPeBDB1vifp9Dm5LqM9B-EC0BlD5K_Bz5pTvBiUlr4lpdoVAWJiLdK4p2LqEWYTmmbjcUShC4KyGEcDKhS-wr-5sE3apyIqi8IXoE3fEVHCLBnjr2X9RVeWcZQnPQLolBSPrYJb8ODEWIdat-zHWvRJjCaWVfogozMvPQ5Y0eUqWYYJBu9RggMYAyH0AsieEJSLrm8jS2ErlzwjhBroOf0QMhTz8aTooFSez3UGjyiKNW"
+                                        alt="Enterprise Business System" class="project-img">
+                                </div>
+                                <div class="p-4 flex-grow-1 d-flex flex-column">
+                                    <p class="label-sm text-muted mb-2">Business Core Platform</p>
+                                    <h3 class="title-lg mb-3">Enterprise Business System</h3>
+                                    <p class="text-muted mb-4">An enterprise application designed to streamline core
+                                        business processes.</p>
+                                    <div class="d-flex flex-wrap gap-2 mb-4 mt-auto">
+                                        <span class="badge badge-skill">.NET</span>
+                                        <span class="badge badge-skill">SQL Server</span>
+                                        <span class="badge badge-skill">REST API</span>
+                                    </div>
+                                    <a href="#" class="label-sm text-decoration-none" style="color: #2563EB;">View Case
+                                        Study &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                            <div class="project-card mx-auto d-flex flex-column h-100" style="max-width: 800px;">
+                                <div class="project-img-wrapper">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYErUyOhu7VvcSH5rTH4tz5piF7hWaCtbrvsjqs9yLYEYMkNe-uN4vHmnwWvBlpE8yDdzBep6hZCFcXICEzgeSro9Hxjaa_AI7g87alRa-AMaREPy6K-Xic4X_hhaPwMxz_oYBgZhWZPEnW6rdwpea0JMsxeDdhMxPRxmSpbrm5wc9aS-e27vQCWIFSB8_OpszOwW-RKPGzQWurT0pghv8O17HhJv5lZWwTsKZXCmowN816kI9q8M9"
+                                        alt="Scalable Integration Hub" class="project-img">
+                                </div>
+                                <div class="p-4 flex-grow-1 d-flex flex-column">
+                                    <p class="label-sm text-muted mb-2">Cloud Infrastructure</p>
+                                    <h3 class="title-lg mb-3">Scalable Integration Hub</h3>
+                                    <p class="text-muted mb-4">A robust middleware solution connecting legacy systems with
+                                        modern cloud APIs.</p>
+                                    <div class="d-flex flex-wrap gap-2 mb-4 mt-auto">
+                                        <span class="badge badge-skill">React</span>
+                                        <span class="badge badge-skill">Node.js</span>
+                                        <span class="badge badge-skill">Azure</span>
+                                    </div>
+                                    <a href="#" class="label-sm text-decoration-none" style="color: #2563EB;">View Case
+                                        Study &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls/icons -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev" style="width: 5%; filter: invert(100%);">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next" style="width: 5%; filter: invert(100%);">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section id="experience" class="section-gap border-t-subtle">
+            <div class="container">
+                <div class="mb-5 fade-in-up">
+                    <p class="label-sm text-muted mb-2">Career Path</p>
+                    <h2 class="headline-section mb-4">Professional Experience</h2>
+                    <p class="fs-5 text-muted" style="max-width: 600px;">
+                        A progressive track record spanning business process re-engineering, enterprise solution
+                        architecture, and full-lifecycle software engineering.
+                    </p>
+                </div>
+
+                <div class="timeline-container fade-in-up">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot dot-primary"></div>
+                        <div class="feature-card" style="padding: 2rem;">
+                            <div
+                                class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+                                <div class="d-flex flex-wrap align-items-center gap-3">
+                                    <h3 class="title-lg mb-0">IT Consultant & Solution Architect</h3>
+                                    <span class="badge badge-skill">Tech Advisory & Independent</span>
+                                </div>
+                                <span class="label-sm px-3 py-1 rounded border"
+                                    style="background-color: var(--surface-container-low); border-color: rgba(225, 227, 228, 0.3);">2022
+                                    — Present</span>
+                            </div>
+                            <p class="text-muted mb-4">Lead digital transformation initiatives, translating complex
+                                business processes into scalable system architectures and pragmatic technology roadmaps
+                                for enterprise clients.</p>
+                            <ul class="list-unstyled text-muted mb-4 space-y-3">
+                                <li class="d-flex mb-3"><span
+                                        class="material-symbols-outlined me-2 text-dark">check_circle</span>Conducted
+                                    extensive business process re-engineering and stakeholder workshops to align tech
+                                    capabilities with strategic KPIs.</li>
+                                <li class="d-flex mb-3"><span
+                                        class="material-symbols-outlined me-2 text-dark">check_circle</span>Architected
+                                    secure microservices, centralized API gateways, and enterprise ERP integration
+                                    layers.</li>
+                                <li class="d-flex mb-3"><span
+                                        class="material-symbols-outlined me-2 text-dark">check_circle</span>Supervised
+                                    agile delivery sprints, cloud migration readiness, and technical vendor evaluations.
+                                </li>
+                            </ul>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge badge-skill">Solution Architecture</span>
+                                <span class="badge badge-skill">Business Analysis</span>
+                                <span class="badge badge-skill">Cloud Strategy</span>
+                                <span class="badge badge-skill">System Integration</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot dot-secondary"></div>
+                        <div class="feature-card" style="padding: 2rem;">
+                            <div
+                                class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+                                <div class="d-flex flex-wrap align-items-center gap-3">
+                                    <h3 class="title-lg mb-0">Senior Software Engineer & Business Analyst</h3>
+                                    <span class="badge badge-skill">Enterprise Solutions Corp</span>
+                                </div>
+                                <span class="label-sm px-3 py-1 rounded border"
+                                    style="background-color: var(--surface-container-low); border-color: rgba(225, 227, 228, 0.3);">2020
+                                    — 2022</span>
+                            </div>
+                            <p class="text-muted mb-4">Bridged functional requirements from executive stakeholders and
+                                translated them into actionable engineering specifications and backend services.</p>
+                            <ul class="list-unstyled text-muted mb-4 space-y-3">
+                                <li class="d-flex mb-3"><span
+                                        class="material-symbols-outlined me-2 text-dark">check_circle</span>Engineered
+                                    core backend transactions using .NET, C#, and SQL Server with high concurrency and
+                                    reliability.</li>
+                                <li class="d-flex mb-3"><span
+                                        class="material-symbols-outlined me-2 text-dark">check_circle</span>Optimized
+                                    relational database queries and stored procedures, reducing report generation times
+                                    by 40%.</li>
+                                <li class="d-flex mb-3"><span
+                                        class="material-symbols-outlined me-2 text-dark">check_circle</span>Mentored
+                                    junior engineers and authored comprehensive functional and technical design
+                                    documents (FDD/TDD).</li>
+                            </ul>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge badge-skill">.NET Core</span>
+                                <span class="badge badge-skill">C#</span>
+                                <span class="badge badge-skill">MS SQL Server</span>
+                                <span class="badge badge-skill">Data Modeling</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item mb-0">
+                        <div class="timeline-dot dot-tertiary"></div>
+                        <div class="feature-card" style="padding: 2rem;">
+                            <div
+                                class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+                                <div class="d-flex flex-wrap align-items-center gap-3">
+                                    <h3 class="title-lg mb-0">Software Engineer</h3>
+                                    <span class="badge badge-skill">Digital Technology Partner</span>
+                                </div>
+                                <span class="label-sm px-3 py-1 rounded border"
+                                    style="background-color: var(--surface-container-low); border-color: rgba(225, 227, 228, 0.3);">2018
+                                    — 2020</span>
+                            </div>
+                            <p class="text-muted mb-4">Developed custom web applications, responsive customer portals,
+                                and robust RESTful API endpoints in collaborative Agile/Scrum environments.</p>
+                            <ul class="list-unstyled text-muted mb-4 space-y-3">
+                                <li class="d-flex mb-3"><span
+                                        class="material-symbols-outlined me-2 text-dark">check_circle</span>Implemented
+                                    responsive web UI components and integrated REST services for enterprise intranet
+                                    portals.</li>
+                                <li class="d-flex mb-3"><span
+                                        class="material-symbols-outlined me-2 text-dark">check_circle</span>Participated
+                                    in bi-weekly sprint planning, automated testing, and CI/CD deployment pipelines.
+                                </li>
+                            </ul>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge badge-skill">Web Applications</span>
+                                <span class="badge badge-skill">RESTful APIs</span>
+                                <span class="badge badge-skill">Agile / Scrum</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-gap border-t-subtle" style="background-color: var(--surface);">
+            <div class="container">
+                <div class="text-center mb-5 fade-in-up">
+                    <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-4 label-sm text-muted"
+                        style="background-color: var(--surface-container);">
+                        <span class="rounded-circle" style="width: 8px; height: 8px; background-color: #2563EB;"></span>
+                        GET IN TOUCH
+                    </div>
+                    <h2 class="headline-section mb-4">Let's Discuss Your Next Initiative</h2>
+                    <p class="fs-5 text-muted mx-auto" style="max-width: 600px;">
+                        Available for strategic IT consulting, enterprise solution architecture, and high-performance
+                        software engineering projects worldwide.
+                    </p>
+                </div>
+
+                <div class="mx-auto fade-in-up" style="max-width: 600px;">
+                    <div class="feature-card p-5">
+                        <div class="d-flex align-items-start gap-4 mb-4">
+                            <div class="p-2 rounded" style="background-color: var(--surface-container);">
+                                <span class="material-symbols-outlined text-dark fs-4">mail</span>
+                            </div>
+                            <div>
+                                <p class="label-sm text-muted mb-1">DIRECT EMAIL</p>
+                                <a href="mailto:rendy.praseptya@gmail.com"
+                                    class="title-lg text-dark text-decoration-none fw-bold">rendy.praseptya@gmail.com</a>
+                                <p class="text-muted mt-1 mb-0">Fast response for project inquiries & consulting.</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-start gap-4 mb-4 pt-4 border-t-subtle">
+                            <div class="p-2 rounded" style="background-color: var(--surface-container);">
+                                <span class="material-symbols-outlined text-dark fs-4">call</span>
+                            </div>
+                            <div>
+                                <p class="label-sm text-muted mb-1">Phone / WhatsApp</p>
+                                <a href="tel:+6281234567890" class="title-lg text-dark text-decoration-none fw-bold">+62
+                                    812 3456 7890</a>
+                                <p class="text-muted mt-1 mb-0">Direct call or WhatsApp consultation.</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-start gap-4 mb-4 pt-4 border-t-subtle">
+                            <div class="p-2 rounded" style="background-color: var(--surface-container);">
+                                <span class="material-symbols-outlined text-dark fs-4">location_on</span>
+                            </div>
+                            <div>
+                                <p class="label-sm text-muted mb-1">Location & Engagement</p>
+                                <p class="title-lg text-dark fw-bold mb-0">Jakarta, Indonesia</p>
+                                <p class="text-muted mt-1 mb-0">Open to remote & hybrid consulting engagements globally.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t-subtle">
+                            <p class="label-sm text-muted mb-3">Professional Networks</p>
+                            <div class="d-flex flex-wrap gap-3">
+                                <a href="https://linkedin.com" target="_blank"
+                                    class="btn btn-ghost d-inline-flex align-items-center gap-2">
+                                    <span class="material-symbols-outlined fs-5">link</span> LinkedIn
+                                </a>
+                                <a href="https://github.com" target="_blank"
+                                    class="btn btn-ghost d-inline-flex align-items-center gap-2">
+                                    <span class="material-symbols-outlined fs-5">terminal</span> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t-subtle py-5" style="background-color: var(--surface);">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-4">
+                <div>
+                    <a class="navbar-brand text-dark d-block mb-3" href="#">RN</a>
+                    <p class="text-muted mb-0">© 2026 Rendy Praseptya Nugraha. All rights reserved.</p>
+                </div>
+                <div class="d-flex flex-wrap gap-4">
+                    <a href="#" class="text-muted text-decoration-none hover-dark">Privacy Policy</a>
+                    <a href="#" class="text-muted text-decoration-none hover-dark">Terms of Service</a>
+                    <a href="#" class="text-muted text-decoration-none hover-dark">LinkedIn</a>
+                    <a href="#" class="text-muted text-decoration-none hover-dark">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Intersection Observer for scroll animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up').forEach((element) => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+
+</html>
