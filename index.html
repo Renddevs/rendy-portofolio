@@ -15,277 +15,7 @@
     <!-- Bootstrap 5 CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        :root {
-            --bs-body-font-family: 'Inter', sans-serif;
-            --primary-navy: #111827;
-            /* From primary */
-            --accent-blue: #2563EB;
-            --bg-offwhite: #F8F9FA;
-            --surface: #FFFFFF;
-            --surface-container: #edeeef;
-            --surface-container-low: #f3f4f5;
-            --border-light: #e1e3e4;
-            --text-muted: #555f70;
-            --bs-body-bg: var(--bg-offwhite);
-            --bs-body-color: var(--primary-navy);
-
-            --section-gap: 120px;
-        }
-
-        body {
-            font-family: var(--bs-body-font-family);
-            background-color: var(--bs-body-bg);
-            color: var(--bs-body-color);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Typography */
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-weight: 700;
-            color: var(--primary-navy);
-            letter-spacing: -0.01em;
-        }
-
-        .display-hero {
-            font-size: 64px;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
-
-        .headline-section {
-            font-size: 44px;
-            line-height: 1.2;
-        }
-
-        .title-lg {
-            font-size: 24px;
-            font-weight: 600;
-        }
-
-        .label-sm {
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        @media (max-width: 768px) {
-            .display-hero {
-                font-size: 40px;
-            }
-
-            .headline-section {
-                font-size: 32px;
-            }
-        }
-
-        /* Layout */
-        .section-gap {
-            padding: var(--section-gap) 0;
-        }
-
-        /* Navbar */
-        .navbar-glass {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-light);
-            height: 72px;
-        }
-
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 24px;
-            letter-spacing: -0.05em;
-        }
-
-        .nav-link {
-            font-weight: 600;
-            color: var(--text-muted) !important;
-            transition: color 0.2s;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--primary-navy) !important;
-        }
-
-        /* Buttons */
-        .btn {
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 14px;
-            padding: 0.75rem 2rem;
-            transition: all 0.2s;
-        }
-
-        .btn-primary-custom {
-            background-color: var(--primary-navy);
-            border: 1px solid var(--primary-navy);
-            color: #fff;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .btn-primary-custom:hover {
-            background-color: #333;
-            color: #fff;
-        }
-
-        .btn-accent {
-            background-color: #003ea8;
-            color: #fff;
-            padding: 0.5rem 1.5rem;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .btn-accent:hover {
-            background-color: #002d7a;
-            color: #fff;
-        }
-
-        .btn-ghost {
-            background-color: transparent;
-            border: 1px solid #76777d;
-            color: var(--primary-navy);
-        }
-
-        .btn-ghost:hover {
-            background-color: var(--surface-container-low);
-        }
-
-        /* Hero Image */
-        .hero-img-container {
-            background-color: var(--surface);
-            border: 1px solid var(--border-light);
-            border-radius: 8px;
-            padding: 8px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
-            aspect-ratio: 4/3;
-        }
-
-        .hero-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        /* Cards */
-        .feature-card {
-            background-color: var(--surface);
-            border: 1px solid var(--border-light);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: box-shadow 0.3s;
-            height: 100%;
-        }
-
-        .feature-card:hover {
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .project-card {
-            background-color: var(--surface);
-            border: 1px solid var(--border-light);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: box-shadow 0.3s;
-        }
-
-        .project-card:hover {
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .project-img-wrapper {
-            aspect-ratio: 16/9;
-            overflow: hidden;
-        }
-
-        .project-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .project-card:hover .project-img {
-            transform: scale(1.05);
-        }
-
-        /* Icons */
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-
-        /* Badges */
-        .badge-skill {
-            background-color: var(--surface-container);
-            color: var(--text-muted);
-            font-size: 14px;
-            font-weight: 600;
-            padding: 0.25rem 0.75rem;
-            border-radius: 999px;
-            text-transform: none;
-            letter-spacing: normal;
-        }
-
-        /* Experience Timeline */
-        .timeline-container {
-            border-left: 1px solid rgba(225, 227, 228, 0.4);
-            margin-left: 1rem;
-            padding-left: 2.5rem;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: -3.05rem;
-            top: 0.375rem;
-            width: 1rem;
-            height: 1rem;
-            border-radius: 50%;
-            border: 4px solid var(--surface);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        .dot-primary {
-            background-color: var(--primary-navy);
-        }
-
-        .dot-secondary {
-            background-color: #76777d;
-        }
-
-        .dot-tertiary {
-            background-color: var(--border-light);
-        }
-
-        /* Fade in Animation */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Border Tops */
-        .border-t-subtle {
-            border-top: 1px solid rgba(225, 227, 228, 0.3);
-        }
-    </style>
+    <link rel="stylesheet" href="Style/index.css">
 </head>
 
 <body>
@@ -320,7 +50,7 @@
             <div class="container-fluid px-4 px-lg-5">
                 <div class="row align-items-center g-5">
                     <div class="col-lg-6 fade-in-up">
-                        <p class="label-sm text-muted mb-4">IT CONSULTANT • BUSINESS ANALYST • SOFTWARE ENGINEER</p>
+                        <p class="label-sm text-muted mb-4">IT CONSULTANT &bull; BUSINESS ANALYST &bull; SOFTWARE ENGINEER</p>
                         <h1 class="display-hero mb-4">Turning Business Problems Into Technology Solutions.</h1>
                         <p class="fs-5 text-muted mb-5" style="max-width: 750px;">
                             I help businesses analyze their processes, translate requirements into practical solutions,
@@ -333,10 +63,10 @@
                         <div class="d-flex flex-wrap align-items-center gap-4 text-muted label-sm">
                             <span class="d-flex align-items-center gap-2"><span
                                     class="material-symbols-outlined">verified</span> 5+ Years Experience</span>
-                            <span class="d-none d-sm-inline">•</span>
+                            <span class="d-none d-sm-inline">&bull;</span>
                             <span class="d-none d-sm-flex align-items-center gap-2"><span
                                     class="material-symbols-outlined">analytics</span> Business Analysis</span>
-                            <span class="d-none d-sm-inline">•</span>
+                            <span class="d-none d-sm-inline">&bull;</span>
                             <span class="d-none d-sm-flex align-items-center gap-2"><span
                                     class="material-symbols-outlined">code</span> Software Engineering</span>
                         </div>
@@ -522,8 +252,8 @@
                         <div class="carousel-item active">
                             <div class="project-card mx-auto d-flex flex-column h-100" style="max-width: 800px;">
                                 <div class="project-img-wrapper">
-                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5CIvwsKbUPeBDB1vifp9Dm5LqM9B-EC0BlD5K_Bz5pTvBiUlr4lpdoVAWJiLdK4p2LqEWYTmmbjcUShC4KyGEcDKhS-wr-5sE3apyIqi8IXoE3fEVHCLBnjr2X9RVeWcZQnPQLolBSPrYJb8ODEWIdat-zHWvRJjCaWVfogozMvPQ5Y0eUqWYYJBu9RggMYAyH0AsieEJSLrm8jS2ErlzwjhBroOf0QMhTz8aTooFSez3UGjyiKNW"
-                                        alt="Enterprise Business System" class="project-img">
+                                    <img src="https://placehold.co/600x200/e1e3e4/111827?text=Business+Core+Logo"
+                                        alt="Enterprise Business System Logo" class="project-img">
                                 </div>
                                 <div class="p-4 flex-grow-1 d-flex flex-column">
                                     <p class="label-sm text-muted mb-2">Business Core Platform</p>
@@ -545,8 +275,8 @@
                         <div class="carousel-item">
                             <div class="project-card mx-auto d-flex flex-column h-100" style="max-width: 800px;">
                                 <div class="project-img-wrapper">
-                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYErUyOhu7VvcSH5rTH4tz5piF7hWaCtbrvsjqs9yLYEYMkNe-uN4vHmnwWvBlpE8yDdzBep6hZCFcXICEzgeSro9Hxjaa_AI7g87alRa-AMaREPy6K-Xic4X_hhaPwMxz_oYBgZhWZPEnW6rdwpea0JMsxeDdhMxPRxmSpbrm5wc9aS-e27vQCWIFSB8_OpszOwW-RKPGzQWurT0pghv8O17HhJv5lZWwTsKZXCmowN816kI9q8M9"
-                                        alt="Scalable Integration Hub" class="project-img">
+                                    <img src="https://placehold.co/600x200/e1e3e4/111827?text=Integration+Hub+Logo"
+                                        alt="Scalable Integration Hub Logo" class="project-img">
                                 </div>
                                 <div class="p-4 flex-grow-1 d-flex flex-column">
                                     <p class="label-sm text-muted mb-2">Cloud Infrastructure</p>
@@ -603,7 +333,7 @@
                                 </div>
                                 <span class="label-sm px-3 py-1 rounded border"
                                     style="background-color: var(--surface-container-low); border-color: rgba(225, 227, 228, 0.3);">2022
-                                    — Present</span>
+                                    &mdash; Present</span>
                             </div>
                             <p class="text-muted mb-4">Lead digital transformation initiatives, translating complex
                                 business processes into scalable system architectures and pragmatic technology roadmaps
@@ -643,7 +373,7 @@
                                 </div>
                                 <span class="label-sm px-3 py-1 rounded border"
                                     style="background-color: var(--surface-container-low); border-color: rgba(225, 227, 228, 0.3);">2020
-                                    — 2022</span>
+                                    &mdash; 2022</span>
                             </div>
                             <p class="text-muted mb-4">Bridged functional requirements from executive stakeholders and
                                 translated them into actionable engineering specifications and backend services.</p>
@@ -682,7 +412,7 @@
                                 </div>
                                 <span class="label-sm px-3 py-1 rounded border"
                                     style="background-color: var(--surface-container-low); border-color: rgba(225, 227, 228, 0.3);">2018
-                                    — 2020</span>
+                                    &mdash; 2020</span>
                             </div>
                             <p class="text-muted mb-4">Developed custom web applications, responsive customer portals,
                                 and robust RESTful API endpoints in collaborative Agile/Scrum environments.</p>
@@ -786,7 +516,7 @@
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-4">
                 <div>
                     <a class="navbar-brand text-dark d-block mb-3" href="#">RN</a>
-                    <p class="text-muted mb-0">© 2026 Rendy Praseptya Nugraha. All rights reserved.</p>
+                    <p class="text-muted mb-0">&copy; 2026 Rendy Praseptya Nugraha. All rights reserved.</p>
                 </div>
                 <div class="d-flex flex-wrap gap-4">
                     <a href="#" class="text-muted text-decoration-none hover-dark">Privacy Policy</a>
@@ -827,3 +557,4 @@
 </body>
 
 </html>
+
