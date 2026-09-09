@@ -1,4 +1,4 @@
-﻿        :root {
+        :root {
             --bs-body-font-family: 'Inter', sans-serif;
             --primary-navy: #111827;
             /* From primary */
@@ -269,8 +269,17 @@
             transform: translateY(0);
         }
 
-        /* Border Tops */
         .border-t-subtle {
             border-top: 1px solid rgba(225, 227, 228, 0.3);
         }
-    </style>
+
+        /* Project Detail Utilities */
+        .hover-bg-subtle {
+            transition: background-color 0.2s;
+        }
+        .hover-bg-subtle:hover {
+            background-color: var(--surface-container-low);
+        }
+        .object-fit-cover {
+            object-fit: cover;
+        }

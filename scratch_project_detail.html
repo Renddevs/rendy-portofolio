@@ -1,0 +1,389 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Enterprise Business System - Case Study</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#7d8497",
+                      "surface-dim": "#d9dadb",
+                      "tertiary-fixed-dim": "#b4c5ff",
+                      "on-tertiary-fixed": "#00174b",
+                      "inverse-primary": "#c0c6db",
+                      "surface-variant": "#e1e3e4",
+                      "surface-container-highest": "#e1e3e4",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-container": "#497cff",
+                      "on-secondary-container": "#596374",
+                      "on-secondary": "#ffffff",
+                      "inverse-surface": "#2e3132",
+                      "background": "#f8f9fa",
+                      "on-primary-fixed": "#141b2b",
+                      "on-error": "#ffffff",
+                      "primary-container": "#141b2b",
+                      "on-surface": "#191c1d",
+                      "outline": "#76777d",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed": "#121c2a",
+                      "secondary-container": "#d6e0f4",
+                      "primary-fixed": "#dce2f7",
+                      "on-surface-variant": "#45464c",
+                      "surface-tint": "#575e70",
+                      "secondary-fixed-dim": "#bdc7db",
+                      "secondary": "#555f70",
+                      "surface-container": "#edeeef",
+                      "on-tertiary-fixed-variant": "#003ea8",
+                      "error": "#ba1a1a",
+                      "surface": "#f8f9fa",
+                      "on-primary": "#ffffff",
+                      "tertiary-container": "#00174b",
+                      "on-primary-fixed-variant": "#404758",
+                      "inverse-on-surface": "#f0f1f2",
+                      "error-container": "#ffdad6",
+                      "tertiary": "#000000",
+                      "surface-container-low": "#f3f4f5",
+                      "primary": "#000000",
+                      "surface-bright": "#f8f9fa",
+                      "secondary-fixed": "#d9e3f7",
+                      "surface-container-high": "#e7e8e9",
+                      "on-secondary-fixed-variant": "#3d4757",
+                      "outline-variant": "#c6c6cd",
+                      "primary-fixed-dim": "#c0c6db",
+                      "tertiary-fixed": "#dbe1ff",
+                      "on-background": "#191c1d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-desktop": "32px",
+                      "container-max": "1280px",
+                      "margin-mobile": "16px",
+                      "section-gap": "120px",
+                      "gutter": "24px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "display-hero-mobile": [
+                              "Inter"
+                      ],
+                      "display-hero": [
+                              "Inter"
+                      ],
+                      "headline-section": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-section-mobile": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "title-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-hero-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-hero": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-section": [
+                              "44px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-section-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: theme('colors.surface-container-lowest');
+            color: theme('colors.on-surface');
+            -webkit-font-smoothing: antialiased;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: theme('spacing.gutter');
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid theme('colors.outline-variant');
+        }
+      </style>
+</head>
+<body class="font-body-md text-body-md text-on-surface bg-surface-container-lowest">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 dark:border-outline/20">
+<div class="flex justify-between items-center h-[72px] px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<a class="font-title-lg text-title-lg font-bold text-primary dark:text-inverse-primary tracking-tight" href="#">Portfolio.IT</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-tertiary-container dark:hover:text-tertiary-fixed-dim transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Expertise</a>
+<a class="text-on-tertiary-container dark:text-tertiary-fixed-dim font-semibold border-b-2 border-on-tertiary-container hover:text-on-tertiary-container dark:hover:text-tertiary-fixed-dim transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Case Studies</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-tertiary-container dark:hover:text-tertiary-fixed-dim transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Process</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-on-tertiary-container dark:hover:text-tertiary-fixed-dim transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Insights</a>
+</div>
+<button class="hidden md:inline-flex bg-on-tertiary-container text-on-primary px-6 py-2.5 rounded-lg font-label-sm text-label-sm hover:opacity-90 transition-opacity">Let's Talk</button>
+<button class="md:hidden text-on-surface p-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-[120px] pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Hero Section -->
+<header class="mb-section-gap max-w-4xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-low rounded-full mb-6 border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Business Core Platform</span>
+</div>
+<h1 class="font-display-hero-mobile text-display-hero-mobile md:font-display-hero md:text-display-hero text-primary mb-8 tracking-tight">Enterprise Business System</h1>
+<div class="flex flex-wrap gap-8 py-6 border-y border-outline-variant/50 mb-12">
+<div>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Role</h3>
+<p class="font-body-md text-body-md text-on-surface font-medium">Business Analyst &amp; Software Engineer</p>
+</div>
+<div>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Industry</h3>
+<p class="font-body-md text-body-md text-on-surface font-medium">Enterprise</p>
+</div>
+<div>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Tech</h3>
+<p class="font-body-md text-body-md text-on-surface font-medium">.NET, SQL Server</p>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden border border-outline-variant/50 shadow-sm aspect-[16/9] w-full">
+<img alt="Dashboard Interface" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1X96BRcyf-VlA3T8LjjmJfkj1WCEiT-C4Hq8u_frGnwl6SBwHh6UUZ70q3tw8qLBEzJ8WzmfkuiVJdjf7uKTFgVpiB-qI8KL8gjoYpeweuuo7xzTltP5W5p3ormXmAAcCY2QcdCYuG0pu9_vjRh_Bp3_cSDbGimPgG-j95FHh2JxGkRz6YZ0L8IzAOPMYYX2Vjqgk9Co-pu7rVnujPb8dtiOqqTI8mptKX9MZXirw2PHyGyc8O9mAmjVM8">
+</div>
+</header>
+<!-- The Challenge & Solution Bento Grid -->
+<section class="mb-section-gap bento-grid">
+<!-- Challenge -->
+<div class="col-span-12 md:col-span-5 bg-surface-container-low p-8 rounded-xl border border-outline-variant/30 flex flex-col justify-center">
+<h2 class="font-title-lg text-title-lg text-primary mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 0;">warning</span>
+                    THE CHALLENGE
+                </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    The client struggled with disjointed operations, relying heavily on manual processes and disconnected legacy systems. This fragmentation led to data silos, significant delays in reporting, and a high rate of operational errors, severely bottlenecking their ability to scale and make informed strategic decisions.
+                </p>
+</div>
+<!-- Solution -->
+<div class="col-span-12 md:col-span-7 bg-surface p-8 rounded-xl border border-outline-variant/50 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-5">
+<span class="material-symbols-outlined text-[120px]">architecture</span>
+</div>
+<h2 class="font-title-lg text-title-lg text-primary mb-6 relative z-10 flex items-center gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+                    THE SOLUTION
+                </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-8 relative z-10">
+                    We engineered a centralized, unified business application designed to consolidate all core operational workflows into a single source of truth. By automating data entry and streamlining cross-departmental communication, the platform eliminates redundancies.
+                </p>
+<!-- Architecture Diagram -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-6 relative z-10">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant mb-4 uppercase tracking-wider">System Architecture</h3>
+<div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center">
+<div class="p-4 bg-surface-container-low rounded-lg w-full md:w-auto border border-outline-variant/20">
+<span class="material-symbols-outlined mb-2 block text-on-surface-variant">group</span>
+<span class="font-body-md text-body-md font-medium">Users</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant hidden md:block">arrow_forward</span>
+<span class="material-symbols-outlined text-outline-variant block md:hidden">arrow_downward</span>
+<div class="p-4 bg-surface-container-low rounded-lg w-full md:w-auto border border-on-tertiary-container/30 border-l-4 border-l-on-tertiary-container">
+<span class="material-symbols-outlined mb-2 block text-on-tertiary-container">web</span>
+<span class="font-body-md text-body-md font-medium">Web App</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant hidden md:block">arrow_forward</span>
+<span class="material-symbols-outlined text-outline-variant block md:hidden">arrow_downward</span>
+<div class="p-4 bg-primary-container text-on-primary rounded-lg w-full md:w-auto">
+<span class="material-symbols-outlined mb-2 block">api</span>
+<span class="font-body-md text-body-md font-medium">.NET API</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant hidden md:block">arrow_forward</span>
+<span class="material-symbols-outlined text-outline-variant block md:hidden">arrow_downward</span>
+<div class="p-4 bg-surface-container-low rounded-lg w-full md:w-auto border border-outline-variant/20">
+<span class="material-symbols-outlined mb-2 block text-on-surface-variant">database</span>
+<span class="font-body-md text-body-md font-medium">SQL Server</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contribution & Tech Stack -->
+<section class="mb-section-gap bento-grid">
+<!-- Contribution -->
+<div class="col-span-12 md:col-span-6 lg:col-span-5">
+<h2 class="font-headline-section-mobile text-headline-section-mobile md:font-headline-section md:text-headline-section text-primary mb-8 tracking-tight">My Contribution</h2>
+<ul class="space-y-4">
+<li class="flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors border border-transparent hover:border-outline-variant/30">
+<span class="material-symbols-outlined text-on-tertiary-container mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<strong class="block font-body-lg text-body-lg text-on-surface mb-1">Business Process Analysis</strong>
+<p class="font-body-md text-body-md text-on-surface-variant">Mapped existing workflows to identify critical bottlenecks.</p>
+</div>
+</li>
+<li class="flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors border border-transparent hover:border-outline-variant/30">
+<span class="material-symbols-outlined text-on-tertiary-container mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<strong class="block font-body-lg text-body-lg text-on-surface mb-1">System Design</strong>
+<p class="font-body-md text-body-md text-on-surface-variant">Architected the scalable solution framework.</p>
+</div>
+</li>
+<li class="flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors border border-transparent hover:border-outline-variant/30">
+<span class="material-symbols-outlined text-on-tertiary-container mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<strong class="block font-body-lg text-body-lg text-on-surface mb-1">Database Design</strong>
+<p class="font-body-md text-body-md text-on-surface-variant">Structured normalized SQL schemas for optimal reporting.</p>
+</div>
+</li>
+<li class="flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors border border-transparent hover:border-outline-variant/30">
+<span class="material-symbols-outlined text-on-tertiary-container mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<strong class="block font-body-lg text-body-lg text-on-surface mb-1">Backend Development</strong>
+<p class="font-body-md text-body-md text-on-surface-variant">Implemented robust .NET APIs and business logic layers.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Tech Stack -->
+<div class="col-span-12 md:col-span-6 lg:col-span-7 lg:pl-12">
+<h2 class="font-headline-section-mobile text-headline-section-mobile md:font-headline-section md:text-headline-section text-primary mb-8 tracking-tight">Technical Stack</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<!-- Backend -->
+<div class="border border-outline-variant/40 rounded-xl p-6 bg-surface">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-on-surface-variant">settings_applications</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Backend</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-primary rounded font-label-sm text-label-sm uppercase tracking-wide">.NET Core</span>
+<span class="px-3 py-1 bg-surface-container-high text-primary rounded font-label-sm text-label-sm uppercase tracking-wide">C#</span>
+<span class="px-3 py-1 bg-surface-container-high text-primary rounded font-label-sm text-label-sm uppercase tracking-wide">Entity Framework</span>
+</div>
+</div>
+<!-- Database -->
+<div class="border border-outline-variant/40 rounded-xl p-6 bg-surface">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-on-surface-variant">storage</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Database</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-primary rounded font-label-sm text-label-sm uppercase tracking-wide">SQL Server</span>
+<span class="px-3 py-1 bg-surface-container-high text-primary rounded font-label-sm text-label-sm uppercase tracking-wide">T-SQL</span>
+</div>
+</div>
+<!-- Frontend -->
+<div class="border border-outline-variant/40 rounded-xl p-6 bg-surface sm:col-span-2">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-on-surface-variant">web</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Frontend</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-primary rounded font-label-sm text-label-sm uppercase tracking-wide">React</span>
+<span class="px-3 py-1 bg-surface-container-high text-primary rounded font-label-sm text-label-sm uppercase tracking-wide">TypeScript</span>
+<span class="px-3 py-1 bg-surface-container-high text-primary rounded font-label-sm text-label-sm uppercase tracking-wide">Tailwind CSS</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Results -->
+
+<!-- CTA -->
+<section class="text-center py-16 border-t border-outline-variant/30">
+<h2 class="font-headline-section-mobile text-headline-section-mobile md:font-headline-section md:text-headline-section text-primary mb-6">Have a similar project?</h2>
+<button class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-lg font-title-lg text-title-lg hover:bg-on-tertiary-container transition-colors shadow-sm hover:shadow-md">
+                Let's Talk
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 border-t border-outline-variant dark:border-outline-variant/10 bg-surface-container-low dark:bg-primary-container">
+<div class="flex flex-col md:flex-row justify-between items-center gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<span class="font-title-lg text-title-lg font-black text-primary dark:text-on-primary">Portfolio.IT</span>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary dark:hover:text-tertiary-fixed-dim transition-colors font-body-md text-body-md cursor-pointer" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary dark:hover:text-tertiary-fixed-dim transition-colors font-body-md text-body-md cursor-pointer" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary dark:hover:text-tertiary-fixed-dim transition-colors font-body-md text-body-md cursor-pointer" href="#">LinkedIn</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary dark:hover:text-tertiary-fixed-dim transition-colors font-body-md text-body-md cursor-pointer" href="#">GitHub</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface dark:text-on-primary opacity-70">© 2024 IT Consultant Professional. All rights reserved.</p>
+</div>
+</footer>
+
+
+</body></html>
