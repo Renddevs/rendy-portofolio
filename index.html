@@ -75,10 +75,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 fade-in-up" style="transition-delay: 200ms;">
-                        <div class="hero-img-container">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuATxxtd0-lYQICMzntkj1dQU4k6MCrkKqv_WqRtJvEgstlsvWzTURl_F63Xu9AteKCdCaiYcrZRp34iieLTBQd_99piqOix1oDglBDjTa0H7PA2lxeRdIMiH2Rmc1Q0f8gVpsU1rI0X_ja1_qsIcjoSGK6l0snwPREyBV9iwjeS0DuKDPVUckLxC4TlPm163mm-4MVtI3tDlo8uguUgneoMFFjaNHF8wb66aaGTJzmV4mhl-XHMChiZ"
-                                alt="Abstract architectural rendering" class="hero-img">
-                        </div>
+                        <div id="hero-3d-container" style="width: 100%; height: 500px; position: relative;"></div>
                     </div>
                 </div>
             </div>
@@ -724,6 +721,129 @@
             });
         });
     </script>
-</body>
+    <!-- Three.js for 3D Hero -->
+    <script src="Assets/tech-icons/base64.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.getElementById('hero-3d-container');
+            if (!container) return;
+            
+            const scene = new THREE.Scene();
+            
+            // Camera
+            const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.z = 5;
+            camera.position.y = 2;
+            camera.lookAt(0,0,0);
 
+            // Renderer
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            // Lights
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            
+            const dirLight = new THREE.DirectionalLight(0x007bff, 1);
+            dirLight.position.set(5, 5, 5);
+            scene.add(dirLight);
+
+            const dirLight2 = new THREE.DirectionalLight(0x00d2ff, 0.8);
+            dirLight2.position.set(-5, -5, 2);
+            scene.add(dirLight2);
+
+            // Objects
+            const group = new THREE.Group();
+            scene.add(group);
+
+            // Core
+            const coreGeometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
+            const coreMaterial = new THREE.MeshPhysicalMaterial({
+                color: 0xffffff,
+                metalness: 0.1,
+                roughness: 0.1,
+                transmission: 0.9,
+                thickness: 0.5,
+                transparent: true,
+                opacity: 0.8
+            });
+            const core = new THREE.Mesh(coreGeometry, coreMaterial);
+            group.add(core);
+
+            // Inner wireframe
+            const wireMaterial = new THREE.LineBasicMaterial({ color: 0x007bff, linewidth: 2 });
+            const wireGeometry = new THREE.EdgesGeometry(coreGeometry);
+            const wireframe = new THREE.LineSegments(wireGeometry, wireMaterial);
+            core.add(wireframe);
+
+            // Orbiting skills
+            const radius = 3;
+            const skills = [];
+            const textureLoader = new THREE.TextureLoader();
+            
+            techLogosBase64.forEach((logoUrl, i) => {
+                const geo = new THREE.BoxGeometry(0.6, 0.6, 0.6);
+                
+                textureLoader.load(logoUrl, (texture) => {
+                    const mat = new THREE.MeshPhysicalMaterial({
+                        map: texture,
+                        color: 0xffffff,
+                        metalness: 0.1,
+                        roughness: 0.5,
+                        transparent: true,
+                        opacity: 0.95
+                    });
+                    const mesh = new THREE.Mesh(geo, mat);
+                    
+                    // Inner wire
+                    const wGeo = new THREE.EdgesGeometry(geo);
+                    const wMat = new THREE.LineBasicMaterial({ color: 0xffffff });
+                    const wFrame = new THREE.LineSegments(wGeo, wMat);
+                    mesh.add(wFrame);
+
+                    const angle = (i / techLogosBase64.length) * Math.PI * 2;
+                    mesh.position.x = Math.cos(angle) * radius;
+                    mesh.position.z = Math.sin(angle) * radius;
+                    
+                    skills.push({ mesh, angle, speed: 0.005 + Math.random() * 0.01 });
+                    group.add(mesh);
+                });
+            });
+
+            // Animation Loop
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                core.rotation.x += 0.005;
+                core.rotation.y += 0.01;
+
+                group.rotation.y += 0.002;
+                group.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;
+
+                skills.forEach(skill => {
+                    skill.mesh.rotation.x -= 0.01;
+                    skill.mesh.rotation.y -= 0.02;
+                    skill.angle += skill.speed;
+                    skill.mesh.position.x = Math.cos(skill.angle) * radius;
+                    skill.mesh.position.z = Math.sin(skill.angle) * radius;
+                    skill.mesh.position.y = Math.sin(skill.angle * 2) * 1;
+                });
+
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            // Resize handler
+            window.addEventListener('resize', () => {
+                if (!container) return;
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+        });
+    </script>
+</body>
 </html>
