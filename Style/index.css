@@ -173,10 +173,11 @@
 
         .project-card {
             background-color: var(--surface);
-            border: 1px solid var(--border-light);
+            border: none;
             border-radius: 8px;
             overflow: hidden;
             transition: box-shadow 0.3s;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05); /* Tambahkan sedikit shadow dasar agar tidak menyatu dengan background */
         }
 
         .project-card:hover {
@@ -283,4 +284,35 @@
         }
         .object-fit-cover {
             object-fit: cover;
+        }
+
+        /* Swiper Custom Styles for Centered Carousel */
+        .projectsSwiper {
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            width: 75%;
+            opacity: 0.4;
+            transform: scale(0.85);
+            transition: all 0.5s ease;
+        }
+
+        .swiper-slide-active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @media (min-width: 768px) {
+            .swiper-slide {
+                width: 60%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .swiper-slide {
+                width: 50%;
+            }
         }
