@@ -12,12 +12,18 @@
             --bs-body-bg: var(--bg-offwhite);
             --bs-body-color: var(--primary-navy);
 
+            --bg-gradient-main: linear-gradient(135deg, #F0F4FD 0%, #DFE9F9 100%);
+            --bg-gradient-surface: linear-gradient(180deg, #FFFFFF 0%, #EEF3FC 100%);
+            --card-gradient: linear-gradient(145deg, #FFFFFF 0%, #E8F0FE 100%);
+            --card-hover-gradient: linear-gradient(145deg, #F4F8FF 0%, #DCE8FA 100%);
+
             --section-gap: 120px;
         }
 
         body {
             font-family: var(--bs-body-font-family);
-            background-color: var(--bs-body-bg);
+            background: var(--bg-gradient-main);
+            background-attachment: fixed;
             color: var(--bs-body-color);
             -webkit-font-smoothing: antialiased;
         }
@@ -159,30 +165,34 @@
 
         /* Cards */
         .feature-card {
-            background-color: var(--surface);
+            background: var(--card-gradient);
             border: 1px solid var(--border-light);
             border-radius: 8px;
             padding: 1.5rem;
-            transition: box-shadow 0.3s;
+            transition: all 0.3s ease;
             height: 100%;
         }
 
         .feature-card:hover {
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+            background: var(--card-hover-gradient) !important;
+            box-shadow: 0px 8px 25px rgba(37, 99, 235, 0.12);
+            transform: translateY(-2px);
         }
 
         .project-card {
             width: 100%;
-            background-color: var(--surface);
-            border: none;
+            background: var(--card-gradient);
+            border: 1px solid var(--border-light);
             border-radius: 8px;
             overflow: hidden;
-            transition: box-shadow 0.3s;
-            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05); /* Tambahkan sedikit shadow dasar agar tidak menyatu dengan background */
+            transition: all 0.3s ease;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.03); /* Tambahkan sedikit shadow dasar agar tidak menyatu dengan background */
         }
 
         .project-card:hover {
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+            background: var(--card-hover-gradient) !important;
+            box-shadow: 0px 12px 35px rgba(37, 99, 235, 0.15);
+            transform: translateY(-4px);
         }
 
         .project-img-wrapper {
