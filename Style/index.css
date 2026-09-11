@@ -14,7 +14,10 @@
 
             --bg-gradient-main: linear-gradient(135deg, #F0F4FD 0%, #DFE9F9 100%);
             --bg-gradient-surface: linear-gradient(180deg, #FFFFFF 0%, #EEF3FC 100%);
+            --bg-gradient-surface-light: linear-gradient(180deg, #FFFFFF 0%, #F6F9FE 100%);
+            
             --card-gradient: linear-gradient(145deg, #FFFFFF 0%, #E8F0FE 100%);
+            --card-gradient-light: linear-gradient(145deg, #FFFFFF 0%, #F4F7FD 100%);
             --card-hover-gradient: linear-gradient(145deg, #F4F8FF 0%, #DCE8FA 100%);
 
             --section-gap: 120px;
@@ -177,6 +180,10 @@
             background: var(--card-hover-gradient) !important;
             box-shadow: 0px 8px 25px rgba(37, 99, 235, 0.12);
             transform: translateY(-2px);
+        }
+
+        #services .feature-card {
+            background: var(--card-gradient-light);
         }
 
         .project-card {
